@@ -7,6 +7,7 @@ package com.mycompany.mavenproject1;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,6 +65,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         lpacientes = new javax.swing.JList<>();
         btnCrearCita = new javax.swing.JButton();
+        btnVerCita = new javax.swing.JButton();
+        btnEditCita = new javax.swing.JButton();
+        btnDelCita = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -170,6 +174,27 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnVerCita.setText("Ver Cita");
+        btnVerCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerCitaActionPerformed(evt);
+            }
+        });
+
+        btnEditCita.setText("Editar Cita");
+        btnEditCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditCitaActionPerformed(evt);
+            }
+        });
+
+        btnDelCita.setText("Eliminar Cita");
+        btnDelCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelCitaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,16 +253,25 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(btnVerCita)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEditCita)
+                                .addGap(12, 12, 12)
+                                .addComponent(btnDelCita)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,7 +295,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 40, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -279,7 +313,12 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnVerCita)
+                            .addComponent(btnEditCita)
+                            .addComponent(btnDelCita))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -317,7 +356,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addComponent(cbselpaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addComponent(btnCrearCita)
-                        .addContainerGap())))
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
 
         pack();
@@ -327,7 +366,7 @@ public class NewJFrame extends javax.swing.JFrame {
     DefaultListModel fechas = new DefaultListModel();
     DefaultListModel citas = new DefaultListModel();
     DefaultListModel pacientes = new DefaultListModel();
-    
+    List<List<String>> listaCitas = new ArrayList<List<String>>();
     private void btnaddmedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddmedicamentoActionPerformed
        //Metodo para agregar medicamentos
        cosas.addElement(Producto.getText());
@@ -365,11 +404,42 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnCrearCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCitaActionPerformed
         // Metoda para crea una cita
-        citas.addElement(indexCitas +" "+cbselpaciente.getSelectedItem());
+        citas.addElement(cbselpaciente.getSelectedItem());
         lcitas.setModel(citas);
+        listaCitas.add(new ArrayList<String>());
+        listaCitas.get(indexCitas).add(""+cbselpaciente.getSelectedItem());
+        listaCitas.get(indexCitas).add(""+especialidad.getText());
+        listaCitas.get(indexCitas).add(""+cbday.getSelectedItem()
+                +"/"+cbmouth.getSelectedItem()
+                +"/"+cbyear.getSelectedItem());
+        listaCitas.get(indexCitas).add(""+cbhour.getSelectedItem()+":"
+                +cbminuts.getSelectedItem()+" "+cbtime.getSelectedItem());
+        System.out.println(listaCitas.get(indexCitas));
         indexCitas++;
    
     }//GEN-LAST:event_btnCrearCitaActionPerformed
+
+    private void btnVerCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCitaActionPerformed
+        // Metodo para ver informacion cita:
+        JOptionPane.showMessageDialog(null,
+                "\nNombre: "+listaCitas.get(lcitas.getSelectedIndex()).get(0)
+                +"\nEspecialidad: "+listaCitas.get(lcitas.getSelectedIndex()).get(1)
+                +"\nFecha : "+listaCitas.get(lcitas.getSelectedIndex()).get(2)
+                +"\nHora : "+listaCitas.get(lcitas.getSelectedIndex()).get(3)
+        );
+    }//GEN-LAST:event_btnVerCitaActionPerformed
+
+    private void btnDelCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelCitaActionPerformed
+        // Metoda para Eliminar una cita:
+        listaCitas.remove(lcitas.getSelectedIndex());
+        citas.removeElementAt(lcitas.getSelectedIndex());
+    }//GEN-LAST:event_btnDelCitaActionPerformed
+
+    private void btnEditCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCitaActionPerformed
+        // Metoda par editar datos de una cita:
+        listaCitas.get(lcitas.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null,"Cambiar Fecha de Cita"));
+        listaCitas.get(lcitas.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null,"Cambiar Hora de Cita")); 
+    }//GEN-LAST:event_btnEditCitaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -407,6 +477,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField Producto;
     private javax.swing.JTextField agregarpaciente;
     private javax.swing.JButton btnCrearCita;
+    private javax.swing.JButton btnDelCita;
+    private javax.swing.JButton btnEditCita;
+    private javax.swing.JButton btnVerCita;
     private javax.swing.JButton btnaddmedicamento;
     private javax.swing.JButton btnaddpaciente;
     private javax.swing.JButton btndelmedicamento;
