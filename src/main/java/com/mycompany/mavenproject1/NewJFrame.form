@@ -350,9 +350,9 @@
                           <Component id="jScrollPane4" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnDelCita" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnVerCita" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVerCita" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="41" max="32767" attributes="0"/>
                       <Component id="jButton3" min="-2" pref="49" max="-2" attributes="0"/>
@@ -375,9 +375,9 @@
                           <Component id="jLabel16" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel17" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cbselpaciente3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnCrearCita1" min="-2" max="-2" attributes="0"/>
