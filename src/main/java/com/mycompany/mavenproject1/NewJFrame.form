@@ -50,7 +50,7 @@
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="btndelmedicamento" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnEditMedicamento" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnVerMedicamento" alignment="0" pref="150" max="32767" attributes="0"/>
+                              <Component id="btnVerMedicamento" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -143,8 +143,6 @@
                                                               <Component id="cbhour" min="-2" pref="51" max="-2" attributes="0"/>
                                                               <EmptySpace max="-2" attributes="0"/>
                                                               <Component id="cbminuts" min="-2" pref="51" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="cbtime" min="-2" pref="62" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -217,7 +215,6 @@
                                   <Component id="jLabel10" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="cbhour" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbminuts" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbtime" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -734,19 +731,6 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbtime">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="am"/>
-            <StringItem index="1" value="pm"/>
-          </StringArray>
         </Property>
       </Properties>
       <AuxValues>

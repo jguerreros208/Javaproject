@@ -92,7 +92,6 @@ public class NewJFrame extends javax.swing.JFrame {
         cbmouth = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         cbselpaciente = new javax.swing.JComboBox<>();
-        cbtime = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         lpacientes = new javax.swing.JList<>();
         btnCrearCita = new javax.swing.JButton();
@@ -218,8 +217,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Especialidad");
         jLabel11.setPreferredSize(new java.awt.Dimension(450, 44));
-
-        cbtime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "am", "pm" }));
 
         jScrollPane3.setViewportView(lpacientes);
 
@@ -348,7 +345,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(btndelmedicamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnEditMedicamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnVerMedicamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                                .addComponent(btnVerMedicamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(agregarpaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -422,9 +419,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(cbhour, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cbminuts, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cbtime, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addComponent(cbminuts, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -475,8 +470,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbhour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbminuts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbtime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbminuts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(especialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -645,7 +639,7 @@ List<String> ejemploLista = new ArrayList<String>();
                 + "/" + cbmouth.getSelectedItem()
                 + "/" + cbyear.getSelectedItem());
         listaCitas.get(indexCitas).add("" + cbhour.getSelectedItem() + ":"
-                + cbminuts.getSelectedItem() + " " + cbtime.getSelectedItem());
+                + cbminuts.getSelectedItem());
         listaCitas.get(indexCitas).add("" + hospital.getText());
         listaCitas.get(indexCitas).add("" + doctor.getText());
         indexCitas++;
@@ -823,7 +817,6 @@ List<String> ejemploLista = new ArrayList<String>();
     private javax.swing.JComboBox<String> cbminuts;
     private javax.swing.JComboBox<String> cbmouth;
     private javax.swing.JComboBox<String> cbselpaciente;
-    private javax.swing.JComboBox<String> cbtime;
     private javax.swing.JComboBox<String> cbyear;
     private javax.swing.JTextField doctor;
     private javax.swing.JTextField especialidad;
