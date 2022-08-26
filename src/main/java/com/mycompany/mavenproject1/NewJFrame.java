@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package com.mycompany.mavenproject1;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -23,23 +23,36 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss");
-Runnable runnable = new Runnable() {
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                Thread.sleep(500);
-                etiquetaReloj.setText(formateador.format(LocalDateTime.now()));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(500);
+                        String hora = formateador.format(LocalDateTime.now());
+                        etiquetaReloj.setText(hora);
+
+                        String hola = "13:38:40";
+                        String hola2= "13:38:50";
+                        
+                        if (hola.equals(hora)) {
+                            JOptionPane.showMessageDialog(rootPane, "Hola si funciona");
+                        }
+                        if (hola2.equals(hora)) {
+                            JOptionPane.showMessageDialog(rootPane, "Hola si funciona 2");
+                        }
+                        
+                        
+                        
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
-    }
-};
-Thread hilo = new Thread(runnable);
-hilo.start();
-        
-        
+        };
+        Thread hilo = new Thread(runnable);
+        hilo.start();
+
     }
 
     /**
@@ -305,6 +318,7 @@ hilo.start();
             }
         });
 
+        etiquetaReloj.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         etiquetaReloj.setText("jLabel14");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -414,8 +428,8 @@ hilo.start();
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(etiquetaReloj)
-                .addGap(195, 195, 195))
+                .addComponent(etiquetaReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,38 +532,38 @@ hilo.start();
                             .addComponent(btnEditCita)
                             .addComponent(btnDelCita)))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    int indexCitas,indexPacientes,indexMedicamentos,indexPadecimientos, indexEnfermedades= 0;
+    int indexCitas, indexPacientes, indexMedicamentos, indexPadecimientos, indexEnfermedades = 0;
     DefaultListModel cosas = new DefaultListModel();
     DefaultListModel fechas = new DefaultListModel();
     DefaultListModel citas = new DefaultListModel();
     DefaultListModel pacientes = new DefaultListModel();
     DefaultListModel enfermedades = new DefaultListModel();
-    
+
     List<List<String>> listapacientes = new ArrayList<List<String>>();
     List<List<String>> listaCitas = new ArrayList<List<String>>();
     List<List<String>> listaEnfermedades = new ArrayList<List<String>>();
     List<List<String>> listaMedicamento = new ArrayList<List<String>>();
     private void btnaddmedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddmedicamentoActionPerformed
-       //Metodo para agregar medicamentos
-       cosas.addElement(Producto.getText());
-       lmedicamentos.setModel(cosas);
-       listaMedicamento.add(new ArrayList<String>());
-       listaMedicamento.get(indexMedicamentos).add(Producto.getText());
-       listaMedicamento.get(indexMedicamentos).add("Desconocido");
-       listaMedicamento.get(indexMedicamentos).add("Desconocido");
-       listaMedicamento.get(indexMedicamentos).add("Desconocido");
-       listaMedicamento.get(indexMedicamentos).add("Desconocido");
-       Producto.setText("");
-       Producto.requestFocus();
-       indexMedicamentos++;
-        
+        //Metodo para agregar medicamentos
+        cosas.addElement(Producto.getText());
+        lmedicamentos.setModel(cosas);
+        listaMedicamento.add(new ArrayList<String>());
+        listaMedicamento.get(indexMedicamentos).add(Producto.getText());
+        listaMedicamento.get(indexMedicamentos).add("Desconocido");
+        listaMedicamento.get(indexMedicamentos).add("Desconocido");
+        listaMedicamento.get(indexMedicamentos).add("Desconocido");
+        listaMedicamento.get(indexMedicamentos).add("Desconocido");
+        Producto.setText("");
+        Producto.requestFocus();
+        indexMedicamentos++;
+
     }//GEN-LAST:event_btnaddmedicamentoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -558,7 +572,7 @@ hilo.start();
 
     private void btndelmedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndelmedicamentoActionPerformed
         // Metodo para Eliminar Medicamentos
-        
+
         cosas.remove(lmedicamentos.getSelectedIndex());
         cosas.removeElementAt(lmedicamentos.getSelectedIndex());
     }//GEN-LAST:event_btndelmedicamentoActionPerformed
@@ -577,7 +591,7 @@ hilo.start();
         agregarpaciente.setText("");
         agregarpaciente.requestFocus();
         indexPacientes++;
-        
+
     }//GEN-LAST:event_btnaddpacienteActionPerformed
 
     private void btndelpacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndelpacienteActionPerformed
@@ -592,31 +606,31 @@ hilo.start();
         citas.addElement(cbselpaciente.getSelectedItem());
         lcitas.setModel(citas);
         listaCitas.add(new ArrayList<>());
-        listaCitas.get(indexCitas).add(""+cbselpaciente.getSelectedItem());
-        listaCitas.get(indexCitas).add(""+especialidad.getText());
-        listaCitas.get(indexCitas).add(""+cbday.getSelectedItem()
-                +"/"+cbmouth.getSelectedItem()
-                +"/"+cbyear.getSelectedItem());
-        listaCitas.get(indexCitas).add(""+cbhour.getSelectedItem()+":"
-                +cbminuts.getSelectedItem()+" "+cbtime.getSelectedItem());
-        listaCitas.get(indexCitas).add(""+hospital.getText());
-        listaCitas.get(indexCitas).add(""+doctor.getText());
+        listaCitas.get(indexCitas).add("" + cbselpaciente.getSelectedItem());
+        listaCitas.get(indexCitas).add("" + especialidad.getText());
+        listaCitas.get(indexCitas).add("" + cbday.getSelectedItem()
+                + "/" + cbmouth.getSelectedItem()
+                + "/" + cbyear.getSelectedItem());
+        listaCitas.get(indexCitas).add("" + cbhour.getSelectedItem() + ":"
+                + cbminuts.getSelectedItem() + " " + cbtime.getSelectedItem());
+        listaCitas.get(indexCitas).add("" + hospital.getText());
+        listaCitas.get(indexCitas).add("" + doctor.getText());
         indexCitas++;
         especialidad.setText("");
         hospital.setText("");
         doctor.setText("");
-   
+
     }//GEN-LAST:event_btnCrearCitaActionPerformed
 
     private void btnVerCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCitaActionPerformed
         // Metodo para ver informacion cita:
         JOptionPane.showMessageDialog(null,
-                "\nNombre: "+listaCitas.get(lcitas.getSelectedIndex()).get(0)
-                +"\nEspecialidad: "+listaCitas.get(lcitas.getSelectedIndex()).get(1)
-                +"\nFecha : "+listaCitas.get(lcitas.getSelectedIndex()).get(2)
-                +"\nHora : "+listaCitas.get(lcitas.getSelectedIndex()).get(3)
-                +"\nHospital : "+listaCitas.get(lcitas.getSelectedIndex()).get(4)
-                +"\nDoctor : "+listaCitas.get(lcitas.getSelectedIndex()).get(5)
+                "\nNombre: " + listaCitas.get(lcitas.getSelectedIndex()).get(0)
+                + "\nEspecialidad: " + listaCitas.get(lcitas.getSelectedIndex()).get(1)
+                + "\nFecha : " + listaCitas.get(lcitas.getSelectedIndex()).get(2)
+                + "\nHora : " + listaCitas.get(lcitas.getSelectedIndex()).get(3)
+                + "\nHospital : " + listaCitas.get(lcitas.getSelectedIndex()).get(4)
+                + "\nDoctor : " + listaCitas.get(lcitas.getSelectedIndex()).get(5)
         );
     }//GEN-LAST:event_btnVerCitaActionPerformed
 
@@ -628,51 +642,51 @@ hilo.start();
 
     private void btnEditCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCitaActionPerformed
         // Metoda par editar datos de una cita:
-        listaCitas.get(lcitas.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null,"Cambiar Fecha de Cita"));
-        listaCitas.get(lcitas.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null,"Cambiar Hora de Cita")); 
-        listaCitas.get(lcitas.getSelectedIndex()).set(4, JOptionPane.showInputDialog(null,"Cambiar Hospital")); 
-        listaCitas.get(lcitas.getSelectedIndex()).set(5, JOptionPane.showInputDialog(null,"Cambiar Cambiar Doctor")); 
+        listaCitas.get(lcitas.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null, "Cambiar Fecha de Cita"));
+        listaCitas.get(lcitas.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null, "Cambiar Hora de Cita"));
+        listaCitas.get(lcitas.getSelectedIndex()).set(4, JOptionPane.showInputDialog(null, "Cambiar Hospital"));
+        listaCitas.get(lcitas.getSelectedIndex()).set(5, JOptionPane.showInputDialog(null, "Cambiar Cambiar Doctor"));
     }//GEN-LAST:event_btnEditCitaActionPerformed
 
     private void btnVerPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPacienteActionPerformed
         // Metodo para ver datalles paciente:
         JOptionPane.showMessageDialog(null,
-                "\nNombre: "+listapacientes.get(lpacientes.getSelectedIndex()).get(0)
-                +"\nApellido: "+listapacientes.get(lpacientes.getSelectedIndex()).get(1)
-                +"\nEdad : "+listapacientes.get(lpacientes.getSelectedIndex()).get(2)
-                +"\nID : "+listapacientes.get(lpacientes.getSelectedIndex()).get(3)
-                +"\nEnfermedad : "+listapacientes.get(lpacientes.getSelectedIndex()).get(4)
+                "\nNombre: " + listapacientes.get(lpacientes.getSelectedIndex()).get(0)
+                + "\nApellido: " + listapacientes.get(lpacientes.getSelectedIndex()).get(1)
+                + "\nEdad : " + listapacientes.get(lpacientes.getSelectedIndex()).get(2)
+                + "\nID : " + listapacientes.get(lpacientes.getSelectedIndex()).get(3)
+                + "\nEnfermedad : " + listapacientes.get(lpacientes.getSelectedIndex()).get(4)
         );
     }//GEN-LAST:event_btnVerPacienteActionPerformed
 
     private void btnEditPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPacienteActionPerformed
         // Metodo para editar detallles paciente:
-        listapacientes.get(lpacientes.getSelectedIndex()).set(0, JOptionPane.showInputDialog(null,"Cambiar Nombre"));
-        listapacientes.get(lpacientes.getSelectedIndex()).set(1, JOptionPane.showInputDialog(null,"Cambiar Apellido"));
-        listapacientes.get(lpacientes.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null,"Cambiar Edad"));
-        listapacientes.get(lpacientes.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null,"Cambiar ID"));
-        listapacientes.get(lpacientes.getSelectedIndex()).set(4, JOptionPane.showInputDialog(null,"Camibar Enfermedades")); 
+        listapacientes.get(lpacientes.getSelectedIndex()).set(0, JOptionPane.showInputDialog(null, "Cambiar Nombre"));
+        listapacientes.get(lpacientes.getSelectedIndex()).set(1, JOptionPane.showInputDialog(null, "Cambiar Apellido"));
+        listapacientes.get(lpacientes.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null, "Cambiar Edad"));
+        listapacientes.get(lpacientes.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null, "Cambiar ID"));
+        listapacientes.get(lpacientes.getSelectedIndex()).set(4, JOptionPane.showInputDialog(null, "Camibar Enfermedades"));
     }//GEN-LAST:event_btnEditPacienteActionPerformed
 
     private void btnVerMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerMedicamentoActionPerformed
         // Metodo para ver detalle medicamento:
         JOptionPane.showMessageDialog(null,
-                "\nNombre: "+listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(0)
-                +"\nDosis: "+listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(1)
-                +"\nHora : "+listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(2)
-                +"\nDias : "+listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(3)
-                +"\nDescripcion : "+listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(4)
+                "\nNombre: " + listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(0)
+                + "\nDosis: " + listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(1)
+                + "\nHora : " + listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(2)
+                + "\nDias : " + listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(3)
+                + "\nDescripcion : " + listaMedicamento.get(lmedicamentos.getSelectedIndex()).get(4)
         );
     }//GEN-LAST:event_btnVerMedicamentoActionPerformed
 
     private void btnEditMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditMedicamentoActionPerformed
         // Metodo para editar medicamento:
-        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(0, JOptionPane.showInputDialog(null,"Cambiar Nombre"));
-        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(1, JOptionPane.showInputDialog(null,"Cambiar Dosis"));
-        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null,"Cambiar Hora de Consumos"));
-        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null,"Cambiar Dias de Consumos"));
-        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(4, JOptionPane.showInputDialog(null,"Camibar Descripcion"));
-    
+        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(0, JOptionPane.showInputDialog(null, "Cambiar Nombre"));
+        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(1, JOptionPane.showInputDialog(null, "Cambiar Dosis"));
+        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(2, JOptionPane.showInputDialog(null, "Cambiar Hora de Consumos"));
+        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(3, JOptionPane.showInputDialog(null, "Cambiar Dias de Consumos"));
+        listaMedicamento.get(lmedicamentos.getSelectedIndex()).set(4, JOptionPane.showInputDialog(null, "Camibar Descripcion"));
+
     }//GEN-LAST:event_btnEditMedicamentoActionPerformed
 
     private void btnAddEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEnfermedadActionPerformed
@@ -695,17 +709,17 @@ hilo.start();
 
     private void btnEditEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditEnfermedadActionPerformed
         // Metodo Editar Enfermedad:
-        listaEnfermedades.get(lenfermedades.getSelectedIndex()).set(0, JOptionPane.showInputDialog(null,"Cambiar Nombre"));
-        listaEnfermedades.get(lenfermedades.getSelectedIndex()).set(1, JOptionPane.showInputDialog(null,"Cambiar Tipo Enfermedad"));
+        listaEnfermedades.get(lenfermedades.getSelectedIndex()).set(0, JOptionPane.showInputDialog(null, "Cambiar Nombre"));
+        listaEnfermedades.get(lenfermedades.getSelectedIndex()).set(1, JOptionPane.showInputDialog(null, "Cambiar Tipo Enfermedad"));
     }//GEN-LAST:event_btnEditEnfermedadActionPerformed
 
     private void btnVerEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerEnfermedadActionPerformed
         // Metodo ver Enfermedad:
         JOptionPane.showMessageDialog(null,
-                "\nNombre Enfermedad: "+listaEnfermedades.get(lenfermedades.getSelectedIndex()).get(0)
-                +"\nTipo Enfermedad: "+listaEnfermedades.get(lenfermedades.getSelectedIndex()).get(1)
+                "\nNombre Enfermedad: " + listaEnfermedades.get(lenfermedades.getSelectedIndex()).get(0)
+                + "\nTipo Enfermedad: " + listaEnfermedades.get(lenfermedades.getSelectedIndex()).get(1)
         );
-        
+
     }//GEN-LAST:event_btnVerEnfermedadActionPerformed
 
     public static void main(String args[]) {
