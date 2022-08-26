@@ -37,14 +37,13 @@ public class NewJFrame extends javax.swing.JFrame {
                         e.printStackTrace();
                     }
                     
-                    for (int i = 0; i < ejemploLista.size(); i++) {
-                        if(ejemploLista.get(i).equals(hora)){
-                            JOptionPane.showMessageDialog(rootPane, "Alarma");
-                        
+                    for (int i = 0; i < listadeCitas.size(); i++) {
+                        if(listadeCitas.get(i).equals(hora)){
+                            JOptionPane.showMessageDialog(rootPane, "Alarma: ");
                         }
                     }
-                    for (int i = 0; i < ejemploLista2.size(); i++) {
-                        if(ejemploLista2.get(i).equals(hora)){
+                    for (int i = 0; i < listadeAlarmas.size(); i++) {
+                        if(listadeAlarmas.get(i).equals(hora)){
                             JOptionPane.showMessageDialog(rootPane, "Alarma: " +listaAlarmas.get(i).get(2) 
                                     +"\nEnfermedad: "+listaAlarmas.get(i).get(3)
                                     +"\nMedicamento: "+listaAlarmas.get(i).get(1)
@@ -703,13 +702,13 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btndelpacienteActionPerformed
 
     	
-List<String> ejemploLista = new ArrayList<String>();
-List<String> ejemploLista2 = new ArrayList<String>();
+List<String> listadeCitas = new ArrayList<String>();
+List<String> listadeAlarmas = new ArrayList<String>();
 
     private void btnCrearCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCitaActionPerformed
         // Metoda para crea una cita
         
-        ejemploLista.add((String) cbhour.getSelectedItem() + ":"+cbminuts.getSelectedItem() + ":00");
+        listadeCitas.add((String) cbhour.getSelectedItem() + ":"+cbminuts.getSelectedItem() + ":00");
         citas.addElement(cbselpaciente.getSelectedItem());
         lcitas.setModel(citas);
         listaCitas.add(new ArrayList<>());
@@ -832,8 +831,8 @@ List<String> ejemploLista2 = new ArrayList<String>();
 
     private void btnCrearAlarmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAlarmaActionPerformed
         // TODO add your handling code here:
-        ejemploLista2.add(cbhour1.getSelectedItem()+":"+cbminuts1.getSelectedItem()+":00");
-        alarma.addElement((cbmedicina.getSelectedItem()) +" "+ cbselpaciente2.getSelectedItem() +" "+ ejemploLista2.get(indexAlarma));
+        listadeAlarmas.add(cbhour1.getSelectedItem()+":"+cbminuts1.getSelectedItem()+":00");
+        alarma.addElement((cbmedicina.getSelectedItem()) +" "+ cbselpaciente2.getSelectedItem() +" "+ listadeAlarmas.get(indexAlarma));
         lmedicamentosalertas.setModel(alarma);
         listaAlarmas.add(new ArrayList<>());
         listaAlarmas.get(indexAlarma).add(cbhour1.getSelectedItem()+":"+cbminuts1.getSelectedItem()+":00");
