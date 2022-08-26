@@ -22,6 +22,10 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        List<String> ejemploLista = new ArrayList<String>();
+        int abc = 9;
+        String comparador = "14:10:01";
+        
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss");
         Runnable runnable = new Runnable() {
             @Override
@@ -32,21 +36,19 @@ public class NewJFrame extends javax.swing.JFrame {
                         String hora = formateador.format(LocalDateTime.now());
                         etiquetaReloj.setText(hora);
 
-                        String hola = "13:38:40";
-                        String hola2= "13:38:50";
-                        
-                        if (hola.equals(hora)) {
-                            JOptionPane.showMessageDialog(rootPane, "Hola si funciona");
-                        }
-                        if (hola2.equals(hora)) {
-                            JOptionPane.showMessageDialog(rootPane, "Hola si funciona 2");
-                        }
                         
                         
                         
+                        
+                        
+                        
+                        
+                        
+
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    
                 }
             }
         };
