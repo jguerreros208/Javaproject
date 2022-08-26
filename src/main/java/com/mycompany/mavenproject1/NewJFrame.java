@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -20,6 +22,24 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss");
+Runnable runnable = new Runnable() {
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(500);
+                etiquetaReloj.setText(formateador.format(LocalDateTime.now()));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+};
+Thread hilo = new Thread(runnable);
+hilo.start();
+        
+        
     }
 
     /**
@@ -85,6 +105,7 @@ public class NewJFrame extends javax.swing.JFrame {
         btnDelEnfermedad = new javax.swing.JButton();
         btnEditEnfermedad = new javax.swing.JButton();
         btnVerEnfermedad = new javax.swing.JButton();
+        etiquetaReloj = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -284,6 +305,8 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        etiquetaReloj.setText("jLabel14");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -390,13 +413,17 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283))
+                .addGap(48, 48, 48)
+                .addComponent(etiquetaReloj)
+                .addGap(195, 195, 195))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaReloj))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -742,6 +769,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbyear;
     private javax.swing.JTextField doctor;
     private javax.swing.JTextField especialidad;
+    private javax.swing.JLabel etiquetaReloj;
     private javax.swing.JTextField hospital;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
